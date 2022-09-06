@@ -20,20 +20,10 @@ class Film(db.Model):
     special_features = db.Column(db.String(500))
 
 
-
-
-
 film_actor = db.Table('film_actor',
     db.Column('film_id',db.ForeignKey('film.film_id')),
     db.Column('actor_id',db.ForeignKey('actor.actor_id'))
 )
 
-# class Film_Actor(db.Model):
-#     __table_args__ = (db.PrimaryKeyConstraint('film_id', 'actor_id'),)
-#     film_id = db.Column(db.Integer,db.ForeignKey('film.film_id'))
-#     actor_id = db.Column(db.Integer,db.ForeignKey('actor.actor_id'))
 
-
-# class Film_Category(db.Model):
-#     pass
 
