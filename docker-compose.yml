@@ -1,0 +1,8 @@
+version: "3.0"
+services:
+  web:
+    build: .
+    ports:
+      - "${HOST_PORT}:5000" # set HOST_PORT this is .env file
+    volumes:
+      - ".:/app"

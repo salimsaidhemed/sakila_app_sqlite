@@ -42,4 +42,5 @@ def films():
         actor = Actor.query.filter_by(actor_id=actor).first()
         return render_template('film_actors.html',title="Sakila - Films Results",rows=actor.films)
         
-
+if __name__=="__main__":
+    app.run(debug = True, host='0.0.0.0', port=5000)
