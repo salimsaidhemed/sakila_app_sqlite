@@ -1,0 +1,11 @@
+.venv/
+.vscode/
+docker-compose.yml
+deployment.yaml
+.gitignore
+service.yaml
+LICENSE
+README.md
+notes
+vagrantfile
+data/

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% include 'fragments/navbar.html' %}
+<div class="container">
+    
+    {% for row in rows.items %}
+    <div class="row">
+        <div class="card movie-card">
+            <div class="card-header">
+              Film no {{ row.film_id }} - {{ row.title }}
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>{{ row.description }}</p>
+                <p><b>Release Year : </b> {{ row.release_year }}</p>
+                <p><b>Language : </b> {{ row.language }}</p>
+                <p><b>Rating: </b> {{ row.rating }}</p>
+                <p><b>Special Features : </b> {{ row.special_features }}</p>
+                <footer><b>Rental Cost</b> {{ row.rental_rate}} for {{ row.rental_duration}} days </footer>
+              </blockquote>
+            </div>
+          </div>
+    </div>
+   
+        
+    {% endfor %}
+     <!-- Pagination Links-->
+<div class="text-right">
+    <a href="{{ url_for('films', page=rows.prev_num) }}"
+       class="btn btn-outline-dark 
+       {% if rows.page == 1 %}disabled{% endif %}">
+        &laquo;
+    </a>
+<!-- Loop through the number of pages to display a link for each-->
+    {% for page_num in rows.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+{% if page_num %}
+<!-- Check for the active page and set the link to "Active"-->
+            {% if rows.page == page_num %}
+            <a href="{{ url_for('films', page=page_num) }}"
+               class="btn btn-dark">
+                {{ page_num }}
+            </a>
+            {% else %}
+            <a href="{{ url_for('films', page=page_num) }}"
+               class="btn btn-outline-dark">
+                {{ page_num }}
+            </a>
+            {% endif %}
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+    <a href="{{ url_for('films', page=rows.next_num) }}"
+       class="btn btn-outline-dark 
+       {% if rows.page == rows.pages %}disabled{% endif %}">
+        &raquo;
+    </a>
+</div>
+<p class="text-right mt-3">
+   Showing page {{ rows.page }} of {{ rows.pages }}
+</p>
+        
+</div>
+    
+{% endblock content %}
+    
+
