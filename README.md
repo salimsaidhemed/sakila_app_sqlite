@@ -57,7 +57,7 @@ The high level architecture of the application is as seen below:
 - **models** - A Directory containing classes Subclassing the `Flask-SQLAlchemy` ORM Model and is used to define Database models that will map to tables in the database.
 - [**requirments.txt**](./requirements.txt) - A file listing all the dependencies (and dependecies of dependencies) for this project
 - **services** - Consist of a number of utility Classes and functions that can be used by other parts of the App.
-- [**service.yaml**](./service.yaml) - A Kubernetes configuration file used to define how an application running in [Pods]https://kubernetes.io/docs/concepts/workloads/pods/) is exposed.
+- [**service.yaml**](./service.yaml) - A Kubernetes configuration file used to define how an application running in [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) is exposed.
 - **static** - Static Files (CSS,js,images etc). Though in Production a CDN is preferred.
 - **templates** - jinja templates that are rendered to display the Application content
 - **templates/fragments** - Commonly used HTML code (like navbars,footers,headers) that can be included in other templates.
